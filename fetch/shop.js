@@ -50,6 +50,8 @@ let shopItem = {
 // reikalingos funkcijos
 // render(arr) - tiesiog sugeneruoja elementus is arr masyvo i html
 function render(arr) {
+  // isivalom konteineri kur bus prekes
+  appEl.innerHTML = '';
   arr.forEach((obj) => {
     appEl.append(makeOneShopItem(obj));
   });
