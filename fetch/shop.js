@@ -20,6 +20,7 @@ fetch(url)
     console.log('products ===', products);
     mainItemsArr = products;
     // appEl.append(makeOneShopItem(products[0]));
+    render(mainItemsArr);
     console.log('products[0] ===', JSON.stringify(products[0]));
   })
   .catch(console.warn);
@@ -48,6 +49,11 @@ let shopItem = {
 
 // reikalingos funkcijos
 // render(arr) - tiesiog sugeneruoja elementus is arr masyvo i html
+function render(arr) {
+  arr.forEach((obj) => {
+    appEl.append(makeOneShopItem(obj));
+  });
+}
 // makeOneShopItem() - funkcija sukurtirti vienam elementui.(galima ir be)
 /*
 <li class="shopItem">
