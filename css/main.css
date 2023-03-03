@@ -5,11 +5,13 @@
   font-weight: normal;
 }
 
-.postItem {
+.shopItem {
   border: 1px solid #000;
   border-radius: 4px;
-  padding: 1.5rem;
   box-shadow: 4px 4px 10px gray;
+}
+.shopItem .info {
+  padding: 1.6rem;
 }
 
 .grid {

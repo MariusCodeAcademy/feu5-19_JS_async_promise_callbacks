@@ -1,6 +1,9 @@
 'use strict';
 console.log('shop.js file was loaded');
 
+// taikomes
+const appEl = document.getElementById('app');
+
 // parisiusti prekes is
 // https://dummyjson.com/product
 const url = 'https://dummyjson.com/product';
@@ -16,6 +19,7 @@ fetch(url)
     const { products } = dataInJs;
     console.log('products ===', products);
     mainItemsArr = products;
+    // appEl.append(makeOneShopItem(products[0]));
     console.log('products[0] ===', JSON.stringify(products[0]));
   })
   .catch(console.warn);
@@ -45,6 +49,36 @@ let shopItem = {
 // reikalingos funkcijos
 // render(arr) - tiesiog sugeneruoja elementus is arr masyvo i html
 // makeOneShopItem() - funkcija sukurtirti vienam elementui.(galima ir be)
+/*
+<li class="shopItem">
+  <img src="" alt="hoodie">
+  <h3>title (id)</h3>
+  <p><em>Category:</em>smartphones</p>
+  <p class="text">Price: $45.99</p>
+  <div class="control">
+    <button class="btn">Buy now</button>
+    <button class="btn">Add to cart</button>
+  </div>
+</li>
+*/
+function makeOneShopItem(shObj) {
+  const liEl = document.createElement('li');
+  liEl.className = 'shopItem';
+  liEl.innerHTML = `
+  <img src="${shObj.thumbnail}" alt="${shObj.title}">
+  <div class="info">
+    <h3>${shObj.title} (${shObj.id})</h3>
+    <p><em>Category:</em>${shObj.category}</p>
+    <p class="text">Price: $${shObj.price.toFixed(2)}</p>
+    <div class="control">
+      <button class="btn">Buy now</button>
+      <button class="btn">Add to cart</button>
+    </div>
+  </div>
+
+  `;
+  return liEl;
+}
 
 // <button>show only "smartphones"</button>
 // filterSmartphones() - is mainItemsArr atrenka tik tos kategorijos prekes
