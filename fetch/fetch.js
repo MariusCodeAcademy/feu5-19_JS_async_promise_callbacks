@@ -33,10 +33,12 @@ getPosts().then((posts) => renderPosts(posts));
 function renderPosts(arr) {
   console.log('i magically draw some html with these posts', arr);
   // sukti ciklas ir generuoti korteles htmle
-  arr.forEach((pObj) => {
-    const oneEl = makeOnePost(pObj);
-    appEl.append(oneEl);
-  });
+  // arr.forEach((pObj) => {
+  //   const oneEl = makeOnePost(pObj);
+  //   appEl.append(oneEl);
+  // });
+  arr.map(makeOnePost).forEach((el) => appEl.append(el));
+
   // 3 korteles per ploti
 }
 
