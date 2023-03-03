@@ -4,3 +4,16 @@
   font-size: 4rem;
   font-weight: normal;
 }
+
+.postItem {
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 1.5rem;
+  box-shadow: 4px 4px 10px gray;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
