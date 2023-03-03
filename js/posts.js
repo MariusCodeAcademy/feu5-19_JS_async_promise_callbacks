@@ -28,7 +28,10 @@ function createPost(newPostObj) {
     console.log('created Post');
   }, 2500);
 }
-
+// debugger;
 createPost({ title: 'Post Three', body: 'This is post Three body' });
 
 getPosts();
+
+// 1 iskviesti getPosts tik po to kai sukurem posta su createPost su pavadinimu
+// 2 iskviesti getPosts tik po to kai sukurem posta su createPost su callback fn
