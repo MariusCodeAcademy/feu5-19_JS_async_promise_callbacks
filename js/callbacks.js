@@ -11,19 +11,27 @@ function getPost1() {
 }
 // sukurti getPost2() kuri atspausdina po 2 sekundziu
 function getPost2() {
-  setTimeout(() => {
-    console.log('Main content');
-  }, 2000);
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      console.log('Main content');
+      res();
+    }, 2000);
+  });
 }
 // sukurti getPost3() kuri atspausdina po 1.5 sekundziu
 function getPost3() {
-  setTimeout(() => {
-    console.log('Footer');
-  }, 1500);
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      console.log('Footer');
+      res();
+    }, 1500);
+  });
 }
 
 // promise way to call getPost
-getPost1().then(() => getPost2());
+getPost1()
+  .then(() => getPost2())
+  .then(() => getPost3());
 
 // getPost1(getPost2);
 // getPost2();

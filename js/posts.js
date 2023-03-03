@@ -22,15 +22,18 @@ function getPosts() {
 }
 
 // create post funkcija kuti ideda nauja posta i pos masyva
-function createPost(newPostObj, cb) {
-  setTimeout(() => {
-    posts.push(newPostObj);
-    console.log('created Post');
-    cb();
-  }, 2500);
+function createPost(newPostObj) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      posts.push(newPostObj);
+      console.log('created Post');
+      resolve();
+    }, 2500);
+  });
 }
 // debugger;
-createPost({ title: 'Post Three', body: 'This is post Three body' }, getPosts);
+// createPost({ title: 'Post Three', body: 'This is post Three body' }, getPosts);
+createPost({ title: 'Post Three', body: 'This is post Three body' }).then(getPosts);
 
 // 1 iskviesti getPosts tik po to kai sukurem posta su createPost su pavadinimu
 // 2 iskviesti getPosts tik po to kai sukurem posta su createPost su callback fn
