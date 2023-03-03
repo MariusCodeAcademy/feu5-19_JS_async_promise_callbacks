@@ -8,3 +8,7 @@ const clockInterval = setInterval(tick, 1000);
 window.addEventListener('beforeunload', function () {
   clearInterval(clockInterval);
 });
+
+const arr = [1, 2, 3];
+// hof
+arr.map((sk) => sk * 2);
