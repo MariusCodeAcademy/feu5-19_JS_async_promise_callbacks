@@ -13,7 +13,7 @@ console.log('promise.js file was loaded');
 const buyPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
     let noError = true;
-    noError = Boolean(Math.random() > 0.5 ? 1 : 0);
+    // noError = Boolean(Math.random() > 0.5 ? 1 : 0);
 
     if (noError) {
       resolve('Operacija sekminga');
@@ -33,6 +33,13 @@ buyPromise
   .then((msg) => {
     // sekmingas atsakymas
     console.log(msg);
+    // throw new Error('klaida pirmame then');
+    return msg.toUpperCase();
+  })
+  .then((msgR) => {
+    // sekmingas atsakymas
+    // msgR - yra tai ka grazina pries tai esantis then()
+    console.log('msgR ===', msgR);
   })
   .catch((errMsg) => {
     // nesekmingas
